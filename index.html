@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Blue Love | Intania</title>
+    <!-- Font Poppins & Font Awesome (Ikon) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0b132b;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            /* Pola titik-titik lembut seperti di gambar */
+            background-image: radial-gradient(#1c2541 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: #0b132b;
+            min-height: 100vh;
+            padding: 20px 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #48cae4;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo i {
+            color: #00b4d8;
+            font-size: 18px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 16px;
+            color: #48cae4;
+            font-size: 18px;
+        }
+
+        /* Hero Section & Foto Profil */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 10px;
+            z-index: 10;
+        }
+
+        .avatar-container {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .avatar-ring {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            padding: 8px;
+            border: 2px solid #00b4d8;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1c2541;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            background: #00b4d8;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b132b;
+            border: 3px solid #0b132b;
+            font-size: 16px;
+        }
+
+        /* Element Hiasan Heart Melayang */
+        .floating-heart {
+            position: absolute;
+            color: #00b4d8;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 5px #00b4d8);
+            pointer-events: none;
+        }
+
+        .fh-1 { top: 120px; left: 30px; font-size: 20px; }
+        .fh-2 { top: 180px; right: 25px; font-size: 24px; transform: rotate(15deg); }
+        .fh-3 { top: 300px; left: 40px; font-size: 18px; }
+        .fh-4 { bottom: 150px; right: 40px; font-size: 16px; }
+
+        /* Tag Badge Welcome */
+        .welcome-badge {
+            background-color: rgba(0, 180, 216, 0.1);
+            border: 1px solid #00b4d8;
+            color: #48cae4;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Judul & Teks Deskripsi */
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .title-name {
+            color: #00b4d8;
+            display: block;
+        }
+
+        .description {
+            font-size: 13.5px;
+            color: #a0aec0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .highlight {
+            color: #00b4d8;
+            font-weight: 600;
+        }
+
+        /* Tombol Aksi */
+        .btn-primary {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.6);
+        }
+
+        /* Section Detail Biodata Tambahan */
+        .details-section {
+            margin-top: 35px;
+            background: rgba(28, 37, 65, 0.6);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .details-title {
+            font-size: 16px;
+            color: #00b4d8;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #a0aec0;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Heart Background Deco -->
+        <i class="fa-solid fa-heart floating-heart fh-1"></i>
+        <i class="fa-solid fa-heart-crack floating-heart fh-2"></i>
+        <i class="fa-solid fa-heart floating-heart fh-3"></i>
+        <i class="fa-solid fa-heart floating-heart fh-4"></i>
+
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <div class="logo">
+                Intania. <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-gear"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <!-- Main Hero Section -->
+        <div class="hero">
+            <!-- Profile Photo -->
+            <div class="avatar-container">
+                <div class="avatar-ring">
+                    <!-- Ganti URL gambar di bawah dengan foto Anda -->
+                    <img src="intania.jpeg" alt="Intania Latifa Azahra" class="avatar-img">
+                </div>
+                <div class="avatar-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+
+            <!-- Welcome Tag -->
+            <div class="welcome-badge">
+                <i class="fa-solid fa-heart"></i> Welcome to My Ocean Blue World!
+            </div>
+
+            <!-- Header Text -->
+            <h1 class="title">
+                Halo, Saya <span class="title-name">Intania Latifa A.</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="description">
+                Siswa <span class="highlight">XII TKJ 1</span> yang antusias mempelajari jaringan komputer, administrasi Linux server, serta perancangan infrastruktur IT bertema biru yang tenang dan presisi.
+            </p>
+
+            <!-- Call to Action Button -->
+            <a href="#biodata" class="btn-primary">Lihat Biodata</a>
+        </div>
+
+        <!-- Section Info Biodata -->
+        <div class="details-section" id="biodata">
+            <div class="details-title">
+                <i class="fa-solid fa-heart"></i> Informasi Lengkap
+            </div>
+            <div class="info-row">
+                <span class="info-label">Nama Lengkap</span>
+                <span class="info-value">Intania Latifa Azahra</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Kelas / Jurusan</span>
+                <span class="info-value">XII TKJ 1 / TKJ</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Tempat, Tgl Lahir</span>
+                <span class="info-value">Pekalongan, 18 Nov 2008</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
